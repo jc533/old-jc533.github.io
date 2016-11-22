@@ -1,3 +1,6 @@
+body{
+  color: gray;
+}
 .project{
   display:inline-block;
   padding:20px;
