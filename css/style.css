@@ -9,7 +9,7 @@ body{
 .project_item{
   display:inline-block;
   padding:20px;
-  font-size: 40px;
+  font-size: 25px;
   background-color:lightblue; 
 }
 img{
