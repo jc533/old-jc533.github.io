@@ -1,1 +1,23 @@
-
+<html>
+  <head>
+    <script src="js/fdb-all.js"></script>
+  </head>
+  <body>
+    <script>
+      function person(name,age,id,gender){
+        this.age = age
+        this.gender = gender
+        this.name = name
+        this.id = id
+      }
+      var fdb = new ForerunnerDB();
+      var db = fdb.db("db");
+      var p1 = new person("Helen",10,1,"female")
+      var p2 = new person("Jack",10,2,"male")
+      var peopleCollection = db.collection('people');
+      peopleCollection.insert(p1);
+      peopleCollection.insert(p2);
+      consloe.log(peopleCollection.find()[0])
+    </script>
+  </body>
+</html>
