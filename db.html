@@ -12,12 +12,12 @@
       }
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
-      var p1 = new person("Helen",10,1,"female")
-      var p2 = new person("Jack",10,2,"male")
+      var p1 = new person("Helen",10,1,"female");
+      var p2 = new person("Jack",10,2,"male");
       var peopleCollection = db.collection('people');
       peopleCollection.insert(p1);
       peopleCollection.insert(p2);
-      consloe.log(peopleCollection.find()[0])
+      consloe.log(peopleCollection.find()[0]);
     </script>
   </body>
 </html>
