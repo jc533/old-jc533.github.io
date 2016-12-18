@@ -17,7 +17,11 @@
       var peopleCollection = db.collection('people');
       peopleCollection.insert(p1);
       peopleCollection.insert(p2);
-      console.log(peopleCollection.find()[0]);
+      var people = peopleCollection.find()
+      for(var i = 0;i<people.length;i++){
+        var p = people[i];
+        console.log(p);
+      }
     </script>
   </body>
 </html>
