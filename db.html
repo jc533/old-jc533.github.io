@@ -29,7 +29,7 @@
       afterload()
       function search_grade(list,id){
         var grades = []
-        for(var idx = 1;idx<list.length;idx++){
+        for(var idx = 0;idx<list.length;idx++){
           if(list[idx][id] == id){
             list[idx][id].push(list[idx][score]);
           }
