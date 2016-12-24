@@ -18,12 +18,15 @@
       }
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
-      var p1 = new person("Helen",10,1,"female");
-      var p2 = new person("Jack",10,2,"male");
+      var p1 = new person("Helen",10,1);
+      var p2 = new person("Jack",10,2);
       var stuCollection = db.collection('student');
       var stusCollection = db.collection('score');
-      stuCollection.load();
-      stusCollection.load(afterload);
+      stuCollection.insert(p1);
+      stuCollection.insert(p2);
+//       stuCollection.load();
+//       stusCollection.load(afterload);
+      afterload()
       function search_grade(list){
         var grades = {}
         for(var idx = 1;idx<list.length;idx++){
