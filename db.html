@@ -30,8 +30,8 @@
       function search_grade(list,id){
         var grades = []
         for(var idx = 0;idx<list.length;idx++){
-          if(list[idx][id] == id){
-            list[idx][id].push(list[idx][score]);
+          if(list[idx].id == id){
+            grades.push(list[idx][score]);
           }
          return grades 
         }
