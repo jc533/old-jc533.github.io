@@ -5,12 +5,12 @@
   <body>
     <script>
       function randname(id,numbers){
-        var idx = id;
+        var x = id;
         var p = []
         var s = []
         for(var i=0;i<numbers;i++)
-          idx += 1;
-          p.push(new person(names[rnd(0,5)],rnd(0,5),idx))
+          x++;
+          p.push(new person(names[rnd(0,5)],rnd(0,5),x))
           s.push(new Score(idx,rnd(0,100)))
           stuCollection.insert(p[i]);
           console.log(p[i],stuCollection.find())
