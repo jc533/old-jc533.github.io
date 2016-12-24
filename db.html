@@ -10,17 +10,26 @@
         this.name = name
         this.id = id
       }
+      function rnd(min, max) {
+        return Math.floor(Math.random() * max) + min;
+      }
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
       var p1 = new person("Helen",10,1,"female");
       var p2 = new person("Jack",10,2,"male");
-      var peopleCollection = db.collection('people');
-      peopleCollection.insert(p1);
-      peopleCollection.insert(p2);
-      var people = peopleCollection.find()
-      for(var i = 0;i<people.length;i++){
-        var p = people[i];
-        console.log(p);
+      var stuCollection = db.collection('student');
+      var stusCollection = db.collection('score');
+      stuCollection.load(fis_load_finish)
+      function fis_load_finish(){
+        stusCollection.load(afterload)
+      }
+      function afterload(){
+        var people = peopleCollection.find()
+        for(var i = 0;i<people.length;i++){
+          var p = people[i];
+          var psc = p[id]
+          console.log(p,psc);
+        }
       }
     </script>
   </body>
