@@ -19,15 +19,19 @@
       var p2 = new person("Jack",10,2,"male");
       var stuCollection = db.collection('student');
       var stusCollection = db.collection('score');
-      stuCollection.load(fis_load_finish)
-      function fis_load_finish(){
+      stuCollection.load(fist_load_finish)
+      function fist_load_finish(){
         stusCollection.load(afterload)
       }
+      function search_grade(){
+        
+      }
       function afterload(){
-        var people = peopleCollection.find()
+        var grade = stusCollection.find()
+        var people = stuCollection.find()
         for(var i = 0;i<people.length;i++){
           var p = people[i];
-          var psc = p[id]
+          var psc = grade[id]
           console.log(p,psc);
         }
       }
