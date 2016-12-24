@@ -4,12 +4,13 @@
   </head>
   <body>
     <script>
-      function randname(stuc,id,numbers){
-        var idx = id+1
+      function randname(id,numbers){
+        var idx = id+1;
         for(var i=0;i<numbers;i++)
-          idx += 1
-          p = new person(names[rnd(0,5)],rnd(0,5),idx)
-          stuc.insert(p)
+          idx += 1;
+          stuCollection.insert(new person(names[rnd(0,5)],rnd(0,5),idx));
+          stusCollection.insert(new Score(idx,rnd(0,100)))
+          
       }
       function person(name,age,id){
         this.age = age
