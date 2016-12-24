@@ -22,10 +22,8 @@
       var p2 = new person("Jack",10,2,"male");
       var stuCollection = db.collection('student');
       var stusCollection = db.collection('score');
-      stuCollection.load(fist_load_finish)
-      function fist_load_finish(){
-        stusCollection.load(afterload)
-      }
+      stuCollection.load();
+      stusCollection.load(afterload);
       function search_grade(list){
         var grades = {}
         for(var idx = 1;idx<list.length;idx++){
