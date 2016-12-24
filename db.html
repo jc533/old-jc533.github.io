@@ -23,15 +23,24 @@
       function fist_load_finish(){
         stusCollection.load(afterload)
       }
-      function search_grade(){
-        
+      function search_grade(list){
+        var grades = {}
+        for(var idx = 1;idx<list.length;idx++){
+          if(grades[list[idx][id]] in grades){
+            grades[list[idx][id]].push(list[idx][score]);
+            continue
+          }
+          grades[list[idx][id]] = [list[idx][score]];
+         return grades 
+        }
       }
       function afterload(){
         var grade = stusCollection.find()
+        var grades = search_grade(grade)
         var people = stuCollection.find()
         for(var i = 0;i<people.length;i++){
           var p = people[i];
-          var psc = grade[id]
+          var psc = grades[id]
           console.log(p,psc);
         }
       }
