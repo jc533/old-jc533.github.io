@@ -24,8 +24,8 @@
       var stusCollection = db.collection('score');
       stuCollection.insert(p1);
       stuCollection.insert(p2);
-//       stuCollection.load();
-//       stusCollection.load(afterload);
+      stuCollection.load();
+      stusCollection.load(afterload);
       afterload()
       function search_grade(list){
         var grades = {}
@@ -44,8 +44,8 @@
         var people = stuCollection.find()
         for(var i = 0;i<people.length;i++){
           var p = people[i];
-//           var psc = grades[id]
-          console.log(p);
+          var psc = grades[id]
+          console.log(p,psc);
         }
       }
     </script>
