@@ -22,8 +22,8 @@
       var p2 = new person("Jack",10,2);
       var stuCollection = db.collection('student');
       var stusCollection = db.collection('score');
-      stuCollection.insert(p1);
-      stuCollection.insert(p2);
+//       stuCollection.insert(p1);
+//       stuCollection.insert(p2);
       stuCollection.load();
       stusCollection.load(afterload);
       afterload()
