@@ -6,10 +6,14 @@
     <script>
       function randname(id,numbers){
         var idx = id+1;
+        var p = []
+        var s = []
         for(var i=0;i<numbers;i++)
           idx += 1;
-          stuCollection.insert(new person(names[rnd(0,5)],rnd(0,5),idx));
-          stusCollection.insert(new Score(idx,rnd(0,100)))
+          p.push(new person(names[rnd(0,5)],rnd(0,5),idx))
+          s.push(new Score(idx,rnd(0,100)))
+          stuCollection.insert(p[i]);
+          stusCollection.insert(s[i]);
           
       }
       function person(name,age,id){
