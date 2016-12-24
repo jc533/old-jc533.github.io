@@ -4,6 +4,13 @@
   </head>
   <body>
     <script>
+      function randname(c,id,len){
+        var idx = id
+        for(var i=0;i<=len;i++)
+          idx += 1
+          p = new person(name[rnd(0,5)],10,id+=1)
+          c.insert(p)
+      }
       function person(name,age,id){
         this.age = age
         this.name = name
@@ -37,6 +44,7 @@
         }
         return grades 
       }
+      var names = [Aaron,Aaron,Abel,Abner,Abraham]
       function afterload(){
         var grade = stusCollection.find();
         var people = stuCollection.find();
