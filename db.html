@@ -27,25 +27,22 @@
       stuCollection.load();
       stusCollection.load(afterload);
       afterload()
-      function search_grade(list){
-        var grades = {}
+      function search_grade(list,id){
+        var grades = []
         for(var idx = 1;idx<list.length;idx++){
-          if(grades[list[idx][id]] in grades){
-            grades[list[idx][id]].push(list[idx][score]);
-            continue
+          if(list[idx][id] == id){
+            list[idx][id].push(list[idx][score]);
           }
-          grades[list[idx][id]] = [list[idx][score]];
          return grades 
         }
       }
       function afterload(){
-        var grade = stusCollection.find()
-        var grades = search_grade(grade)
-        var people = stuCollection.find()
+        var grade = stusCollection.find();
+        var people = stuCollection.find();
         for(var i = 0;i<people.length;i++){
           var p = people[i];
-          var psc = grades[p.id];
-          console.log(p,psc);
+          var grades = search_grade(grade,p.id)
+          console.log(p,grades);
         }
       }
     </script>
