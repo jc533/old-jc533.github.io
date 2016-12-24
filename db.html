@@ -9,9 +9,9 @@
         var s = []
         for(var i=0;i<numbers;i++)
           stu.push(new person(names[rnd(0,5)],rnd(0,5),i+id))
-          s.push(new Score(x,rnd(0,100)))
+          s.push(new Score(id+i,rnd(0,100)))
           stuCollection.insert(stu[i]);
-          console.log(stu,x)
+          console.log(stu,id+i)
           stusCollection.insert(s[i]);
           
       }
