@@ -4,9 +4,9 @@
   </head>
   <body>
     <script>
-      function randname(stuc,id,len){
-        var idx = id
-        for(var i=0;i<=len;i++)
+      function randname(stuc,id,numbers){
+        var idx = id+1
+        for(var i=0;i<numbers;i++)
           idx += 1
           p = new person(names[rnd(0,5)],rnd(0,5),idx)
           stuc.insert(p)
