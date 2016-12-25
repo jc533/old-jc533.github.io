@@ -38,19 +38,19 @@
         stuscoreCollection.load(afterload);
       }
 //       afterload()
-      function search_grade(list,id){
-        var grades = []
-        for(var idx = 0;idx<list.length;idx++){
-          if(list[idx].id == id){
-            grades.push(list[idx].score);
-//             console.log(idx)
-          }
-        }
-        return grades 
+//       function search_grade(list,id){
+//         var grades = []
+//         for(var idx = 0;idx<list.length;idx++){
+//           if(list[idx].id == id){
+//             grades.push(list[idx].score);
+// //             console.log(idx)
+//           }
+//         }
+//         return grades 
       }
       var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
       function afterload(){
-        var grade = stuscoreCollection.find();
+//         var grade = stuscoreCollection.find();
         var people = studentCollection.find();
         for(var i = 0;i<people.length;i++){
           var p = people[i];
@@ -65,7 +65,7 @@
         var id = $(this).attr("data-id")/1;
         result = db.collection("score").find({id:id});
         stu_result = db.collection("student").find({id:id});
-        console.log(stu_result);
+        console.log(stu_result[0].name);
         for(var i=0;i<result.length;i++){
           console.log(result[i].score);
         }
