@@ -7,12 +7,13 @@
       function randname(id,numbers){
         var stu = []
         var s = []
-        for(var i=0;i<numbers;i++)
+        for(var i=0;i<numbers;i++){
           stu.push(new person(names[rnd(0,5)],rnd(0,5),i+id))
           s.push(new Score(id+i,rnd(0,100)))
           console.log(stu,id+i)
           stusCollection.insert(s[i]);
           stuCollection.insert(stu[i]);
+        }
       }
       function person(name,age,id){
         this.age = age
