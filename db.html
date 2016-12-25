@@ -8,14 +8,9 @@
   <body>
     <script>
       function randname(id,numbers){
-        var stu = []
-        var s = []
         for(var i=0;i<numbers;i++){
-          stu.push(new person(names[rnd(0,5)],rnd(0,5),i+id))
-          s.push(new Score(id+i,rnd(0,100)))
-          console.log(stu,id+i)
-          stusCollection.insert(s[i]);
-          stuCollection.insert(stu[i]);
+          stusCollection.insert(new Score(id+i,rnd(0,100)));
+          stuCollection.insert(new person(names[rnd(0,5)],rnd(5,15),i+id));
         }
       }
       function person(name,age,id){
