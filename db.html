@@ -56,7 +56,9 @@
           var p = people[i];
           var grades = search_grade(grade,p.id);
           console.log(p,grades);
-          $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td></tr>");
+          $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
+                            '<td><button class="btn" data-id="' + p.id + '">grades</button></td>'
+                            +"</tr>");
         }
       }
     </script>
@@ -66,6 +68,7 @@
           <td>id</td>
           <td>姓名</td>
           <td>年齡</td>
+          <td>grades</td>
         </tr>
       </thead>
       <tbody>
@@ -73,6 +76,7 @@
           <td>1</td>
           <td>pineapple</td>
           <td>10</td>
+          <td><button class="btn" data-id="0">grades</button></td>
         </tr>
       </tbody>
     </table>
