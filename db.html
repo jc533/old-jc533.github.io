@@ -34,8 +34,10 @@
       var stusCollection = db.collection('score');
 //       stuCollection.insert(p1);
 //       stuCollection.insert(p2);
-      stuCollection.load();
-      stusCollection.load(afterload);
+      stuCollection.load(stuload);
+      function stuload(){
+        stusCollection.load(afterload);
+      }
 //       afterload()
       function search_grade(list,id){
         var grades = []
