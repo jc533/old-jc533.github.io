@@ -54,7 +54,6 @@
         var people = studentCollection.find();
         for(var i = 0;i<people.length;i++){
           var p = people[i];
-          var grades = search_grade(grade,p.id);
           console.log(p,grades);
           $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
                             '<td><button class="btn btn-info" data-id="' + p.id + '">grades</button></td>'
