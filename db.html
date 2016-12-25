@@ -9,8 +9,8 @@
     <script>
       function randname(id,numbers){
         for(var i=0;i<numbers;i++){
-          stusCollection.insert(new Score(id+i,rnd(0,100)));
-          stuCollection.insert(new person(names[rnd(0,5)],rnd(5,15),i+id));
+          stuscoreCollection.insert(new Score(id+i,rnd(0,100)));
+          studentCollection.insert(new person(names[rnd(0,5)],rnd(5,15),i+id));
         }
       }
       function person(name,age,id){
@@ -29,13 +29,13 @@
       var db = fdb.db("db");
       var p1 = new person("Helen",10,1);
       var p2 = new person("Jack",10,2);
-      var stuCollection = db.collection('student');
-      var stusCollection = db.collection('score');
+      var studentCollection = db.collection('student');
+      var stuscoreCollection = db.collection('score');
 //       stuCollection.insert(p1);
 //       stuCollection.insert(p2);
-      stuCollection.load(stuload);
+      studentCollection.load(stuload);
       function stuload(){
-        stusCollection.load(afterload);
+        stuscoreCollection.load(afterload);
       }
 //       afterload()
       function search_grade(list,id){
@@ -50,8 +50,8 @@
       }
       var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
       function afterload(){
-        var grade = stusCollection.find();
-        var people = stuCollection.find();
+        var grade = stuscoreCollection.find();
+        var people = studentCollection.find();
         for(var i = 0;i<people.length;i++){
           var p = people[i];
           var grades = search_grade(grade,p.id);
@@ -62,8 +62,8 @@
         }
       }
       function show_grades(){
-        console.log("hi")
         var id = $(this).attr("data-id")/1;
+        result = db.collection("student").find({id:id});
         console.log(id);
       }
       $("body").on("click",".btn",show_grades);
