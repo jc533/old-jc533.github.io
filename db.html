@@ -64,7 +64,11 @@
       function show_grades(){
         var id = $(this).attr("data-id")/1;
         result = db.collection("score").find({id:id});
-        console.log(result);
+        stu_result = db.collection("student").find({id:id});
+        console.log(stu_result);
+        for(var i=0;i<result.length;i++){
+          console.log(result[i].score);
+        }
       }
       $("body").on("click",".btn",show_grades);
     </script>
