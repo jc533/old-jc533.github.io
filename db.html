@@ -63,7 +63,7 @@
       }
       function show_grades(){
         var id = $(this).attr("data-id")/1;
-        result = db.collection("student").find({id:id});
+        result = db.collection("score").find({id:id});
         console.log(result);
       }
       $("body").on("click",".btn",show_grades);
