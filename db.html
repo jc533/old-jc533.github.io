@@ -70,7 +70,8 @@
         }
 //         alert(stu_result[0].name + "\n" + "總分"+ sum + "\n" + "平均" + sum/result.length);
         $("#name").text(stu_result[0].name);
-        $("#score").text("\n" + "總分"+ sum + "\n" + "平均" + sum/result.length);
+        $("#sum").text("總分"+ sum);
+        $("#average_val").text("平均" + sum/result.length);
       }
       $("body").on("click",".btn",show_grades);
     </script>
@@ -102,7 +103,9 @@
           </div>
           <div class="modal-body">
             <span id="name"></span><br>
-            <span id="score"></span>
+            <span id="sum"></span>
+            <span id="average_val"></span>
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
