@@ -56,7 +56,7 @@
           var p = people[i];
 //           console.log(p,grades);
           $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
-                            '<td><button class="btn btn-info" data-id="' + p.id + '">grades</button></td>'
+                            '<td><button class="btn btn-info" data-id="' + p.id + '"> Detail</button></td>'
                             +"</tr>");
         }
       }
@@ -64,10 +64,11 @@
         var id = $(this).attr("data-id")/1;
         result = db.collection("score").find({id:id});
         stu_result = db.collection("student").find({id:id});
-        console.log(stu_result[0].name);
+        var sum = 0
         for(var i=0;i<result.length;i++){
-          console.log(result[i].score);
+          sum += result[i].score/1;
         }
+        alert(stu_result[0].name + "\n" + "總分"+ sum + "\n" + "平均" + sum/result.length);
       }
       $("body").on("click",".btn",show_grades);
     </script>
@@ -85,7 +86,7 @@
           <td>1</td>
           <td>pineapple</td>
           <td>10</td>
-          <td><button class="btn" data-id="0">grades</button></td>
+          <td><button class="btn" data-id="0"> Detail</button></td>
         </tr>
       </tbody>
     </table>
