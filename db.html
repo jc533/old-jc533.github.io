@@ -64,7 +64,7 @@
 //           console.log(p,grades);
           var p = people[i];
           $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
-                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
+                            '<td><button type="button" class="btn Detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
                             +"</tr>");
         }
       }
@@ -93,14 +93,14 @@
         var people = studentCollection.find();
         var people_size = people.length;
         $("tbody").append("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td>" + 
-                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
+                            '<td><button type="button" class="btn Detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
                             +"</tr>");
         $("#new_id").text(people[people_size-1].id+1);
         $("#new_name").val("");
         $("#new_age").val("");
         
       }
-      $("body").on("click",".btn",show_grades);
+      $("body").on("click",".btn Detail",show_grades);
       $("body").on("click","#sent",append_stu);
       
     </script>
@@ -130,7 +130,7 @@
           <td>1</td>
           <td>pineapple</td>
           <td>10</td>
-          <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="0">Detail</button></td>
+          <td><button type="button" class="btn Detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="0">Detail</button></td>
         </tr>
 <!--         <tr class="stu_data">
           <td>[id]</td>
