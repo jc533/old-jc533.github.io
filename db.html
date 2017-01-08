@@ -83,7 +83,20 @@
         $("#sum").text("總分"+ sum);
         $("#average_val").text("平均" + sum/result.length);
       }
+      function append_stu(){
+        var name = $("#new_name").val();
+        var age = $("#new_age").val();
+        var id = $("#new_id").text()/1;
+        studentCollection.insert(new person(name,age,id));
+        var people = studentCollection.find();
+        var people_size = people.length; 
+        $("#new_id").text(people[people_size-1].id+1);
+        $("#new_name").val("");
+        $("#new_age").val("");
+        
+      }
       $("body").on("click",".btn",show_grades);
+      $(".sent").click(append_stu);
     </script>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -101,10 +114,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr id="append">
+        <tr>
           <td><span id="new_id"></span></td>
-          <td><input></td>
-          <td><input></td>
+          <td><input id="new_name"></td>
+          <td><input id="new_age"></td>
           <td><button class="sent">送出</button></td>
         <tr>
         <tr>
