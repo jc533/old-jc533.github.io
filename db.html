@@ -89,8 +89,13 @@
         var id = $("#new_id").text()/1;
         studentCollection.insert(new person(name,age,id));
         studentCollection.save();
+        
         var people = studentCollection.find();
         var people_size = people.length;
+        var p = people[i]
+        $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
+                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
+                            +"</tr>");
         $("#new_id").text(people[people_size-1].id+1);
         $("#new_name").val("");
         $("#new_age").val("");
