@@ -58,6 +58,8 @@
 //         $(".stu_data").hide()
 //         var grade = stuscoreCollection.find();
         var people = studentCollection.find();
+        var people_size = people.length; 
+        $("#new_id").text(people[people_size-1].id+1);
         for(var i = 0;i<people.length;i++){
           var p = people[i];
 //           console.log(p,grades);
@@ -99,11 +101,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>id</td>
+        <tr id="append">
+          <td><span id="new_id"></span></td>
           <td><input></td>
           <td><input></td>
-          <td><button>送出</button></td>
+          <td><button class="sent">送出</button></td>
         <tr>
         <tr>
           <td>1</td>
