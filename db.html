@@ -60,11 +60,10 @@
         var people = studentCollection.find();
         var people_size = people.length; 
         $("#new_id").text(people[people_size-1].id+1);
-        for(var i = 0;i<people.length;i++){
-          var p = people[i];
+        for(var i = 0;i<people.length;i++);
 //           console.log(p,grades);
-          $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
-                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
+          $("tbody").append("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td>" + 
+                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
                             +"</tr>");
         }
       }
