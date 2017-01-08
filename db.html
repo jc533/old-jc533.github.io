@@ -93,7 +93,7 @@
         var people = studentCollection.find();
         var people_size = people.length;
         $("tbody").append("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td>" + 
-                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
+                            '<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
                             +"</tr>");
         $("#new_id").text(people[people_size-1].id+1);
         $("#new_name").val("");
