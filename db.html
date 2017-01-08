@@ -55,6 +55,7 @@
 //       }
       var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
       function afterload(){
+        $("stu_data").hide()
 //         var grade = stuscoreCollection.find();
         var people = studentCollection.find();
         for(var i = 0;i<people.length;i++){
@@ -67,7 +68,7 @@
       }
       function show_grades(){
         var id = $(this).attr("data-id")/1;
-        result = db.collection("score").find({id:id});
+        result = db.collection("score").find({stu_id:id});
         stu_result = db.collection("student").find({id:id});
         var sum = 0
         for(var i=0;i<result.length;i++){
@@ -101,6 +102,22 @@
           <td>pineapple</td>
           <td>10</td>
           <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="0">Detail</button></td>
+        </tr>
+        <tr class="stu_data">
+          <td>
+            [id]
+          </td>
+          <td>
+            [name]
+          </td>
+          <td>
+            [age]
+          </td> 
+          <td>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="[id]">
+              Detail
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
