@@ -84,14 +84,17 @@
         $("#average_val").text("平均" + sum/result.length);
       }
       function append_stu(){
+        console.log("hi")
+        $("#new_name").val("");
+        $("#new_age").val("");
         var name = $("#new_name").val();
         var age = $("#new_age").val();
         var id = $("#new_id").text()/1;
-        studentCollection.insert(new person(name,age,id));
-        studentCollection.save()
+//         studentCollection.insert(new person(name,age,id));
+//         studentCollection.save();
 //         var people = studentCollection.find();
 //         var people_size = people.length;
-        $("#new_id").text(people[people_size-1].id+1);
+//         $("#new_id").text(people[people_size-1].id+1);
         $("#new_name").val("");
         $("#new_age").val("");
         
