@@ -27,12 +27,12 @@
     function after_load(){
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");    
-      var contactsCollection = db.collection('contacts')
+      var contactsCollection = db.collection('contacts');
       var noteCollection = db.collection('note');
     }
     var last_id = 0
     function append_person(){
-      alert("hi")
+      alert("hi");
 //       var name = $("#new_name").val();
 //       var email = $("#new_email").val();
 //       var phone = $("#new_phone").val();
@@ -43,7 +43,7 @@
 //       noteCollection.save();
 //       last_id += 1
     }
-    $("body").on("click","#add_contact_btn",append_person);
+    $("body").on("click","#add_contact_btn",append_person)
   </script>
 </head>
 <body>
