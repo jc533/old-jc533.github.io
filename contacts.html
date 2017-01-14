@@ -8,6 +8,19 @@
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script>
+    function person(id,name,email,phone,note){
+      this.id = id;
+      this.name = name;
+      this.email = email;
+      this.phone = phone;
+      this.note = note
+    }
+    var fdb = new ForerunnerDB();
+    var db = fdb.db("db");    
+    var contactsCollection = db.collection('contacts');
+//     var noteCollection = db.collection('note');
+  </script>
   
 </head>
 <body>
