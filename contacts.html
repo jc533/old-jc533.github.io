@@ -34,7 +34,7 @@
     function append_person(){
       var name = $("#new_name").val();
       var email = $("#new_email").val();
-      var phone $("#new_phone").val();
+      var phone = $("#new_phone").val();
       var note = $("#new_note").text();
       contactsCollection.insert(Person(last_id+1,name,email,phone));
       noteCollection.insert(Note(last_id+1,last_id+1,note));
