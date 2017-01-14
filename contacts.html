@@ -4,24 +4,46 @@
 <meta name="description" content="JSA HW7 Template">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>contacts</title>
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/fdb-all.js"></script>
   <script>
-    function person(id,name,email,phone,note){
+    function Person(id,name,email,phone){
       this.id = id;
       this.name = name;
       this.email = email;
       this.phone = phone;
-      this.note = note
     }
-    var fdb = new ForerunnerDB();
-    var db = fdb.db("db");    
-    var contactsCollection = db.collection('contacts');
-//     var noteCollection = db.collection('note');
+    function Note(man_id,id,note){
+      this.man_id = man_id;
+      this.id = id;
+      this.note = note;
+    }
+    contactsCollection.load(noteload);
+    function noteload(){
+      noteCollection.load(after_load);
+    function after_load(){
+      var fdb = new ForerunnerDB();
+      var db = fdb.db("db");    
+      var contactsCollection = db.collection('contacts')
+      var noteCollection = db.collection('note');
+    }
+    var last_id = 0
+    function append_person(){
+      var name = $("#new_name").val();
+      var email = $("#new_email").val();
+      var phone $("new_phone").val();
+      var note = $("#new_note").text();
+      contactsCollection.insert(Person(last_id+1,name,email,phone));
+      noteCollection.insert(Note(last_id+1,last_id+1,note));
+      contactsCollection.save();
+      noteCollection.save();
+      last_id += 1
+    }
+    $("#add_contact_btn").click(append_person)
   </script>
-  
 </head>
 <body>
   <br>
