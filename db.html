@@ -65,9 +65,9 @@
           var p = people[i];
           soure = $(".template").html();
           console.log(source);
-          soure = soure.replace(/[id]/g,p.id);
-          soure = soure.replace(/[name]/g,p.name);
-          soure = soure.replace(/[age]/g,p.age);
+          soure = soure.replace(/id/g,p.id);
+          soure = soure.replace(/name/g,p.name);
+          soure = soure.replace(/age/g,p.age);
           $("tbody").append("<tr>" + soure + "</tr>")
 //           $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
 //                             '<td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
@@ -161,11 +161,11 @@
           <td><button type="button" class="btn delete btn-danger btn-lg" data-id="0">delete</button></td>
         </tr>
         <tr class="template">
-          <td>[id]</td>
-          <td>[name]</td>
-          <td>[age]</td> 
-          <td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="[id]">Detail</button></td>
-          <td><button type="button" class="btn delete btn-danger btn-lg" data-id="[id]">Delete</button></td>
+          <td>id</td>
+          <td>name</td>
+          <td>age</td> 
+          <td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="id">Detail</button></td>
+          <td><button type="button" class="btn delete btn-danger btn-lg" data-id="id">Delete</button></td>
         </tr>
       </tbody>
     </table>
