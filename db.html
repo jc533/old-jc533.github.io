@@ -64,6 +64,7 @@
 //           console.log(p,grades);
           var p = people[i];
           soure = $(".template").html();
+          console.log(source);
           soure = soure.replace(/[id]/g,p.id);
           soure = soure.replace(/[name]/g,p.name);
           soure = soure.replace(/[age]/g,p.age);
