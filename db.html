@@ -78,8 +78,6 @@
           sum += result[i].score/1;
         }
 //         alert(stu_result[0].name + "\n" + "總分"+ sum + "\n" + "平均" + sum/result.length);
-        console.log(sum); 
-        console.log(result.length);
         $("#name").text(stu_result[0].name);
         $("#sum").text("總分"+ sum);
         $("#average_val").text("平均" + sum/result.length);
@@ -102,8 +100,16 @@
         $("#new_age").val("");
         
       }
+      function delete_itm(){
+        var id = $(this).attr("data-id")/1;
+        alert(id);
+//         result = db.collection("score").find({stu_id:id});
+//         stu_result = db.collection("student").find({id:id});
+//         db.collection("student").find({id:id});
+      }
       $("body").on("click",".detail",show_grades);
       $("body").on("click","#sent",append_stu);
+      $("body").on("click",".delete",delete_itm);
       
     </script>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
