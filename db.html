@@ -101,6 +101,10 @@
         
       }
       function delete_itm(){
+        var r = confirm("Are you sure?");
+        if(r == false){
+          return  
+        }
         var id = $(this).attr("data-id")/1;
         db.collection("score").remove({stu_id:id});
         db.collection("student").remove({id:id});
