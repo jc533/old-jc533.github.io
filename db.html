@@ -103,9 +103,10 @@
       function delete_itm(){
         var id = $(this).attr("data-id")/1;
         alert(id);
-//         result = db.collection("score").find({stu_id:id});
-//         stu_result = db.collection("student").find({id:id});
-//         db.collection("student").find({id:id});
+        db.collection("score").remove({stu_id:id});
+        db.collection("student").remove({id:id});
+        studentCollection.save();
+        stuscoreCollection.save();
       }
       $("body").on("click",".detail",show_grades);
       $("body").on("click","#sent",append_stu);
