@@ -154,16 +154,18 @@
           <td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="0">Detail</button></td>
           <td><button type="button" class="btn delete btn-danger btn-lg" data-id="0">delete</button></td>
         </tr>
-        <tr class="stu_data">
-          <td>[id]</td>
-          <td>[name]</td>
-          <td>[age]</td> 
-          <td>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="[id]">
-              Detail
-            </button>
-          </td>
-        </tr>
+        <div class="template">
+          <tr>
+            <td>[id]</td>
+            <td>[name]</td>
+            <td>[age]</td> 
+            <td>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="[id]">
+                Detail
+              </button>
+            </td>
+          </tr>
+        </div>
       </tbody>
     </table>
     <!-- Modal -->
