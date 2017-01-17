@@ -4,6 +4,49 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://orangeappletw.github.io/JavaScript-Advanced-textbook/lesson_5/js/fdb-all.min.js"></script>
+    <script>
+      function Person(id,name,email,phone){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+      }
+      function Note(man_id,id,note){
+        this.man_id = man_id;
+        this.id = id;
+        this.note = note;
+      }
+      after_load();
+  //     contactsCollection.load(noteload);
+  //     function noteload(){
+  //       noteCollection.load(after_load);
+      function after_load(){
+        var fdb = new ForerunnerDB();
+        var db = fdb.db("db");    
+        var contactsCollection = db.collection('contacts');
+        var noteCollection = db.collection('note');
+      }
+      var last_id = 0
+      function append_person(){
+        var name = $("#new_name").val();
+        var email = $("#new_email").val();
+        var phone = $("#new_phone").val();
+        var note = $("#new_note").text();
+        contactsCollection.insert(Person(last_id+1,name,email,phone));
+        noteCollection.insert(Note(last_id+1,last_id+1,note));
+        contactsCollection.save();
+        noteCollection.save();
+        last_id += 1
+        var name = $("#new_name").val("");
+        var email = $("#new_email").val("");
+        var phone = $("#new_phone").val("");
+        var note = $("#new_note").text("");
+        $("tbody").append(
+          '<tr><td>'+name+'</td><td>'+email+'</td><td>0912-345-678</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
+        );
+       }
+  //     $("body").on("click","#add_contactbtn",append_person);
+    </script>
   </head>
   <body>
     <br>
