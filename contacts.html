@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      function Person(id,name,email,phone){
+      function person(id,name,email,phone){
         this.id = id;
         this.name = name;
         this.email = email;
@@ -25,7 +25,6 @@
       var db = fdb.db("db");    
       var contactsCollection = db.collection('contacts');
       var noteCollection = db.collection('note');
-      console.log("start");
       var last_id = 0
       function append_person(){
         last_id += 1
@@ -33,8 +32,8 @@
         var email = $("#new_email").val();
         var phone = $("#new_phone").val();
         var note = $("#new_note").text();
-        contactsCollection.insert(Person(last_id,name,email,phone));
-        noteCollection.insert(Note(last_id,last_id,note));
+        contactsCollection.insert(new person(last_id,name,email,phone));
+        noteCollection.insert(new note(last_id,last_id,note));
         contactsCollection.save();
         noteCollection.save();
         $("#new_name").val("");
