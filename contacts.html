@@ -28,15 +28,15 @@
       console.log("start");
       var last_id = 0
       function append_person(){
+        last_id += 1
         var name = $("#new_name").val();
         var email = $("#new_email").val();
         var phone = $("#new_phone").val();
         var note = $("#new_note").text();
-        contactsCollection.insert(Person(last_id+1,name,email,phone));
-        noteCollection.insert(Note(last_id+1,last_id+1,note));
+        contactsCollection.insert(Person(last_id,name,email,phone));
+        noteCollection.insert(Note(last_id,last_id,note));
         contactsCollection.save();
         noteCollection.save();
-        last_id += 1
         $("#new_name").val("");
         $("#new_email").val("");
         $("#new_phone").val("");
