@@ -28,7 +28,6 @@
       console.log("start");
       var last_id = 0
       function append_person(){
-        alert("hi")
         var name = $("#new_name").val();
         var email = $("#new_email").val();
         var phone = $("#new_phone").val();
@@ -38,12 +37,12 @@
         contactsCollection.save();
         noteCollection.save();
         last_id += 1
-        var name = $("#new_name").val("");
-        var email = $("#new_email").val("");
-        var phone = $("#new_phone").val("");
-        var note = $("#new_note").text("");
+        $("#new_name").val("");
+        $("#new_email").val("");
+        $("#new_phone").val("");
+        $("#new_note").text("");
         $("tbody").append(
-          '<tr><td>'+name+'</td><td>'+email+'</td><td>0912-345-678</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
+          '<tr><td>'+name+'</td><td>'+email+'</td><td>'+phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
         );
        }
       $("body").on("click","#add_contact_btn",append_person);
