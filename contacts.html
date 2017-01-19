@@ -16,18 +16,15 @@
         this.id = id;
         this.note = note;
       }
-      after_load();
   //     contactsCollection.load(noteload);
   //     function noteload(){
   //       noteCollection.load(after_load);
-      function after_load(){
-        var fdb = new ForerunnerDB();
-        var db = fdb.db("db");    
-        var contactsCollection = db.collection('contacts');
-        var noteCollection = db.collection('note');
-        console.log("start");
-        alert("hi")
-      }
+      var fdb = new ForerunnerDB();
+      var db = fdb.db("db");    
+      var contactsCollection = db.collection('contacts');
+      var noteCollection = db.collection('note');
+      console.log("start");
+      alert("hi");
       var last_id = 0
       function append_person(){
         var name = $("#new_name").val();
