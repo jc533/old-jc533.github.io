@@ -18,14 +18,26 @@
         this.id = id;
         this.note = note;
       }
-  //     contactsCollection.load(noteload);
-  //     function noteload(){
-  //       noteCollection.load(after_load);
-      var fdb = new ForerunnerDB();
-      var db = fdb.db("db");    
-      var contactsCollection = db.collection('contacts');
-      var noteCollection = db.collection('note');
-      var last_id = 0
+      contactsCollection.load(noteload);
+      function noteload(){
+        noteCollection.load(after_load);
+      function after_load(){
+        var fdb = new ForerunnerDB();
+        var db = fdb.db("db");    
+        var contactsCollection = db.collection('contacts');
+        var noteCollection = db.collection('note');
+        last_id = 0;
+        var people = contactsCollection.find();
+        var people_size = people.length; 
+        $("#new_id").text(people[people_size-1].id+1);
+        for(var i = 0;i<people.length;i++){
+//           console.log(p,grades);
+          var p = people[i];
+                  $("tbody").append(
+          '<tr><td>'+p.name+'</td><td>'+p.email+'</td><td>'+p.phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
+        );
+
+      }
       function append_person(){
         last_id += 1
         var name = $("#new_name").val();
