@@ -25,20 +25,19 @@
       var db = fdb.db("db");    
       var contactsCollection = db.collection('contacts');
       var noteCollection = db.collection('note');
-      function after_load(){
-        last_id = 0;
-        var people = contactsCollection.find();
-        var people_size = people.length; 
-        $("#new_id").text(people[people_size-1].id+1);
-        for(var i = 0;i<people.length;i++){
-//           console.log(p,grades);
-          last_id += 1;
-          var p = people[i];
-          $("tbody").append(
-          '<tr><td>'+p.name+'</td><td>'+p.email+'</td><td>'+p.phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
-        );
-
-      }
+//       function after_load(){
+//         last_id = 0;
+//         var people = contactsCollection.find();
+//         var people_size = people.length; 
+//         $("#new_id").text(people[people_size-1].id+1);
+//         for(var i = 0;i<people.length;i++){
+// //           console.log(p,grades);
+//           last_id += 1;
+//           var p = people[i];
+//           $("tbody").append(
+//           '<tr><td>'+p.name+'</td><td>'+p.email+'</td><td>'+p.phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
+//         );
+//       }
       function append_person(){
         last_id += 1
         var name = $("#new_name").val();
