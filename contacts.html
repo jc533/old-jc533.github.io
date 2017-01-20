@@ -18,9 +18,9 @@
         this.id = id;
         this.note = note;
       }
-      contactsCollection.load(noteload);
-      function noteload(){
-        noteCollection.load(after_load);
+      contactsCollection.load(after_load);
+//       function noteload(){
+//         noteCollection.load(after_load);
       function after_load(){
         var fdb = new ForerunnerDB();
         var db = fdb.db("db");    
@@ -32,8 +32,9 @@
         $("#new_id").text(people[people_size-1].id+1);
         for(var i = 0;i<people.length;i++){
 //           console.log(p,grades);
+          last_id += 1;
           var p = people[i];
-                  $("tbody").append(
+          $("tbody").append(
           '<tr><td>'+p.name+'</td><td>'+p.email+'</td><td>'+p.phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
         );
 
