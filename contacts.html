@@ -21,6 +21,7 @@
 //       contactsCollection.load(after_load);
 //       function noteload(){
 //         noteCollection.load(after_load);
+      console.log("hi")
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");    
       var contactsCollection = db.collection('contacts');
@@ -40,21 +41,22 @@
       }
       function append_person(){
         last_id += 1
-        var name = $("#new_name").val();
-        var email = $("#new_email").val();
-        var phone = $("#new_phone").val();
-        var note = $("#new_note").text();
-        contactsCollection.insert(new Person(last_id,name,email,phone));
-        noteCollection.insert(new Note(last_id,last_id,note));
-        contactsCollection.save();
-        noteCollection.save();
-        $("#new_name").val("");
-        $("#new_email").val("");
-        $("#new_phone").val("");
-        $("#new_note").text("");
-        $("tbody").append(
-          '<tr><td>'+name+'</td><td>'+email+'</td><td>'+phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
-        );
+        alert("hi")
+//         var name = $("#new_name").val();
+//         var email = $("#new_email").val();
+//         var phone = $("#new_phone").val();
+//         var note = $("#new_note").text();
+//         contactsCollection.insert(new Person(last_id,name,email,phone));
+//         noteCollection.insert(new Note(last_id,last_id,note));
+//         contactsCollection.save();
+//         noteCollection.save();
+//         $("#new_name").val("");
+//         $("#new_email").val("");
+//         $("#new_phone").val("");
+//         $("#new_note").text("");
+//         $("tbody").append(
+//           '<tr><td>'+name+'</td><td>'+email+'</td><td>'+phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
+//         );
        }
       $("body").on("click","#add_contact_btn",append_person);
     </script>
