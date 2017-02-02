@@ -30,7 +30,7 @@
         last_id = 0;
         var people = contactsCollection.find();
         var people_size = people.length; 
-        $("#new_id").text(people[people_size-1].id+1);
+//         $("#new_id").text(people[people_size-1].id+1);
         for(var i = 0;i<people.length;i++){
           last_id += 1;
           var p = people[i];
@@ -40,7 +40,7 @@
         }
       }
       function append_person(){
-        last_id += 1
+        last_id += 1;
         var name = $("#new_name").val();
         var email = $("#new_email").val();
         var phone = $("#new_phone").val();
