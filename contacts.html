@@ -58,7 +58,7 @@
           '<tr><td>'+name+'</td><td>'+email+'</td><td>'+phone+'</td><td><input type="button" value="詳細" class="btn btn-default"></td></tr>'
         );
        }
-      $("#add_contact_btn").on("click",append_person);
+      $("body").on("click","#add_contact_btn",append_person);
     </script>
     <br>
     <div class="row">
