@@ -7,7 +7,223 @@
    </style> 
    <script src="js/fdb-all.js"></script>
    <link href="css/bootstrap.css" rel="stylesheet">
+   <script type="text/javascript" src="js/jquery.js"><<html>
+  <head>
+   <style>
+     body {
+       padding-top: 70px;
+     }
+   </style> 
+   <script src="js/fdb-all.js"></script>
+   <link href="css/bootstrap.css" rel="stylesheet">
    <script type="text/javascript" src="js/jquery.js"></script>
+   <script type="text/javascript" src="js/bootstrap.js"></script>
+  </head>
+  <body>
+    <script>
+      function randname(id,numbers){
+        for(var i=0;i<numbers;i++){
+          stuscoreCollection.insert(new Score(id+i,rnd(0,100)));
+          studentCollection.insert(new person(names[rnd(0,5)],rnd(5,15),i+id));
+        }
+      }
+      function person(name,age,id){
+        this.age = age
+        this.name = name
+        this.id = id
+        this.phone = 0;
+      }
+      function Score(id,s){
+        this.stu_id = id
+        this.score = s
+      }
+      function rnd(min, max) {
+        return Math.floor(Math.random() * max) + min;
+      }
+      var fdb = new ForerunnerDB();
+      var db = fdb.db("db");
+      // var p1 = new person("Helen",10,1);
+      // var p2 = new person("Jack",10,2);
+      var studentCollection = db.collection('student');
+      var stuscoreCollection = db.collection('score');
+      var parentsCollection = db.collection('parents');
+      var teachersCollection = db.collection('teachers');      
+//       stuCollection.insert(p1);
+//       stuCollection.insert(p2);
+      studentCollection.load(stuload);
+      function stuload(){
+        stuscoreCollection.load();
+        parentsCollection.load();
+        teachersCollection.load(afterload);
+      }
+//       afterload()
+//       function search_grade(list,id){
+//         var grades = []
+//         for(var idx = 0;idx<list.length;idx++){
+//           if(list[idx].id == id){
+//             grades.push(list[idx].score);
+// //             console.log(idx)
+//           }
+//         }
+//         return grades 
+//       }
+      var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
+      function afterload(){
+        $(".template").hide();
+//         var grade = stuscoreCollection.find();a
+        var people = studentCollection.find();
+        var people_size = people.length; 
+        $("#new_id").text(people[people_size-1].id+1);
+        for(var i = 0;i<people.length;i++){
+//           console.log(p,grades);
+          var p = people[i];
+          soure = $(".template").html();
+          soure = soure.replace(/#id/g,p.id);
+          soure = soure.replace(/name/g,p.name);
+          soure = soure.replace(/age/g,p.age);
+          $("tbody").append("<tr>" + soure + "</tr>")
+//           $("tbody").append("<tr><td>" + p.id + "</td><td>" + p.name + "</td><td>" + p.age + "</td>" + 
+//                             '<td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + p.id + '">Detail</button></td>'
+//                             + '<td><button type="button" class="btn delete btn-danger btn-lg" data-id="' + p.id + '">Delete</button></td>'+
+//                             +"</tr>");
+        }
+      }
+      function show_grades(){
+        var id = $(this).attr("data-id")/1;
+        result = db.collection("score").find({stu_id:id});
+        stu_result = db.collection("student").find({id:id});
+        var sum = 0
+        for(var i=0;i<result.length;i++){
+          sum += result[i].score/1;
+        }
+//         alert(stu_result[0].name + "\n" + "總分"+ sum + "\n" + "平均" + sum/result.length);
+        $("#name").text(stu_result[0].name);
+        $("#sum").text("總分"+ sum);
+        $("#average_val").text("平均" + sum/result.length);
+      }
+      function append_stu(){
+        var name = $("#new_name").val();
+        var age = $("#new_age").val();
+        var id = $("#new_id").text()/1;
+        studentCollection.insert(new person(name,age,id));
+        studentCollection.save();
+        
+        var people = studentCollection.find();
+        var people_size = people.length;
+        soure = $(".template").html();
+        soure = soure.replace(/#id/g,id);
+        soure = soure.replace(/name/g,name);
+        soure = soure.replace(/age/g,age);
+        $("tbody").append("<tr>" + soure + "</tr>")
+
+        // $("tbody").append("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td>" + 
+        //                     '<td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
+        //                     +'<td><button type="button" class="btn delete btn-danger btn-lg" data-toggle="modal" data-id="' + id + '">Delete</button></td>'
+        //                   +"</tr>");
+        $("#new_id").text(people[people_size-1].id+1);
+        $("#new_name").val("");
+        $("#new_age").val("");
+        
+      }
+      function delete_itm(){
+        var r = confirm("Are you sure?");
+        if(r == false){
+          return  
+        }
+        var id = $(this).attr("data-id")/1;
+        db.collection("score").remove({stu_id:id});
+        db.collection("student").remove({id:id});
+        $(this).closest("tr").remove();
+        studentCollection.save();
+        stuscoreCollection.save();
+      }
+      function search(){}
+      $("body").on("click",".detail",show_grades);
+      $("body").on("click","#sent",append_stu);
+      $("body").on("click",".delete",delete_itm);
+      $("body").on("click",".search",search)
+      
+    </script>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="col-md-3"><h1>student</h1></div>
+        <div class="col-md-1">
+          <h2 class="nav navbar-nav navbar-right">search</h2>
+        </div>
+        <div class="col-md-6">
+          <input class="nav navbar-nav navbar-right form-control" type="text">
+        </div>
+        <div class="col-md-1">
+          <button class="search nav navbar-nav navbar-right"><img src="https://static1.squarespace.com/static/528e87f3e4b0ef5d1e49355e/t/5374ab4fe4b060b2a3d1a69c/1400154961532/search-icon-01.jpg" width="30"></button>
+        </div>
+      </div>
+    </nav>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>id</td>
+          <td>姓名</td>
+          <td>年齡</td>
+          <td>grades</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span id="new_id"></span></td>
+          <td><input id="new_name" class="form-control"></td>
+          <td><input id="new_age" class="form-control"></td>
+          <td></td>
+          <td><button id="sent" class="btn btn-success">送出</button></td>
+        <tr>
+        <tr>
+          <td>1</td>
+          <td>pineapple</td>
+          <td>10</td>
+          <td>
+            <button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="0">Detail</button>
+          </td>
+          <td>
+            <button type="button" class="btn delete btn-danger btn-lg" data-id="0">刪除</button>
+            <button type="button" class="btn delete btn-danger btn-lg" data-id="0">修改</button>
+          </td>
+        </tr>
+        <tr class="template">
+          <td>#id</td>
+          <td>name</td>
+          <td>age</td> 
+          <td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="#id">Detail</button></td>
+          <td><button type="button" class="btn delete btn-danger btn-lg" data-id="#id">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <span id="name"></span><br>
+            <span id="sum"></span><br>
+            <span id="average_val"></span>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+<!--             <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+<!--      <script> -->
+<!-- //       $("#sent").click(append_stu); -->
+<!--     </script> -->
+  </body>
+</html>
+/script>
    <script type="text/javascript" src="js/bootstrap.js"></script>
   </head>
   <body>
