@@ -12,6 +12,7 @@
   </head>
   <body>
     <script>
+      $(".template").hide();
       function randname(id,numbers){
         for(var i=0;i<numbers;i++){
           stuscoreCollection.insert(new Score(id+i,rnd(0,100)));
@@ -60,7 +61,6 @@
 //       }
       var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
       function afterload(){
-        $(".template").hide();
 //         var grade = stuscoreCollection.find();a
         var people = studentCollection.find();
         var people_size = people.length; 
