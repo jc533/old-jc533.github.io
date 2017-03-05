@@ -139,7 +139,10 @@
 
       function update()
       {
-        alert("hello");
+        // alert("hello");
+        // var stu = $(this).closest();
+        var id = $(this).attr("data-id");
+        db.collection("students").updateById(id,new person("hi",0,id));
       }
 
       $("body").on("click",".detail",show_grades);
