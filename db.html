@@ -32,10 +32,12 @@
       }
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
-      var p1 = new person("Helen",10,1);
-      var p2 = new person("Jack",10,2);
+      // var p1 = new person("Helen",10,1);
+      // var p2 = new person("Jack",10,2);
       var studentCollection = db.collection('student');
       var stuscoreCollection = db.collection('score');
+      var parentsCollection = db.collection('parents');
+      var teachersCollection = db.collection('teachers');      
 //       stuCollection.insert(p1);
 //       stuCollection.insert(p2);
       studentCollection.load(stuload);
