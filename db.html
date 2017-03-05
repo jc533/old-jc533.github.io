@@ -79,6 +79,7 @@
 //                             +"</tr>");
         }
       }
+
       function show_grades(){
         var id = $(this).attr("data-id")/1;
         result = db.collection("score").find({stu_id:id});
@@ -92,6 +93,7 @@
         $("#sum").text("總分"+ sum);
         $("#average_val").text("平均" + sum/result.length);
       }
+
       function append_stu(){
         var name = $("#new_name").val();
         var age = $("#new_age").val();
@@ -116,6 +118,7 @@
         $("#new_age").val("");
         
       }
+
       function delete_itm(){
         var r = confirm("Are you sure?");
         if(r == false){
@@ -128,15 +131,24 @@
         studentCollection.save();
         stuscoreCollection.save();
       }
+
       function search()
       {
         alert($("#parent-id").val());
       }
+
+      function update()
+      {
+        alert("hello");
+      }
+
       $("body").on("click",".detail",show_grades);
       $("body").on("click","#sent",append_stu);
       $("body").on("click",".delete",delete_itm);
       $("body").on("click","#search",search);
-      
+      $("body").on("click",".update",update);
+
+
     </script>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -199,7 +211,7 @@
           </td>
           <td>
             <button type="button" class="btn delete btn-danger btn-lg" data-id="0">刪除</button>
-            <button type="button" class="btn modify btn-warning btn-lg" data-id="0">修改</button>
+            <button type="button" class="btn update btn-warning btn-lg" data-id="0">修改</button>
           </td>
         </tr>
       </tbody>
