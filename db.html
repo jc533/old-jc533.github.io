@@ -12,7 +12,6 @@
   </head>
   <body>
     <script>
-      $(".template").hide();
       function randname(id,numbers){
         for(var i=0;i<numbers;i++){
           stuscoreCollection.insert(new Score(id+i,rnd(0,100)));
@@ -32,6 +31,7 @@
       function rnd(min, max) {
         return Math.floor(Math.random() * max) + min;
       }
+      $(".template").hide();
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
       // var p1 = new person("Helen",10,1);
