@@ -22,6 +22,7 @@
         this.age = age
         this.name = name
         this.id = id
+        this.phone = 0;
       }
       function Score(id,s){
         this.stu_id = id
@@ -42,7 +43,9 @@
 //       stuCollection.insert(p2);
       studentCollection.load(stuload);
       function stuload(){
-        stuscoreCollection.load(afterload);
+        stuscoreCollection.load();
+        parentscoreCollection.load();
+        teachersCollection.load(afterload);
       }
 //       afterload()
 //       function search_grade(list,id){
@@ -58,7 +61,7 @@
       var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
       function afterload(){
         $(".template").hide();
-//         var grade = stuscoreCollection.find();
+//         var grade = stuscoreCollection.find();a
         var people = studentCollection.find();
         var people_size = people.length; 
         $("#new_id").text(people[people_size-1].id+1);
