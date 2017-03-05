@@ -1,6 +1,9 @@
 <html>
   <head>
    <style>
+     .template {
+      visibility: hidden;
+     }
      body {
        padding-top: 70px;
      }
@@ -31,7 +34,7 @@
       function rnd(min, max) {
         return Math.floor(Math.random() * max) + min;
       }
-      $(".template").hide();
+//       $(".template").hide();
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
       // var p1 = new person("Helen",10,1);
