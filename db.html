@@ -31,7 +31,6 @@
       function rnd(min, max) {
         return Math.floor(Math.random() * max) + min;
       }
-      $(".template").hide();
       var fdb = new ForerunnerDB();
       var db = fdb.db("db");
       // var p1 = new person("Helen",10,1);
@@ -61,9 +60,11 @@
 //       }
       var names = ["Aaron","Aaron","Abel","Abner","Abraham"]
       function afterload(){
-//         var grade = stuscoreCollection.find();a
+//         var grade = stuscoreCollection.find();
+        $(".template").hide();
         var people = studentCollection.find();
-        var people_size = people.length; 
+        var people_size = people.length;
+
         $("#new_id").text(people[people_size-1].id+1);
         for(var i = 0;i<people.length;i++){
 //           console.log(p,grades);
