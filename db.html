@@ -144,8 +144,8 @@
         // var stu = $(this).closest();
         var id = $(this).attr("data-id")/1;
         alert(id);
-        // db.collection("students").updateById(id,new person("hi",0,id));
-        // studentCollection.save();
+        db.collection("students").updateById(id,new person("hi",0,id));
+        studentCollection.save();
       }
 
       $("body").on("click",".detail",show_grades);
