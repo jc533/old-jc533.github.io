@@ -101,10 +101,16 @@
         
         var people = studentCollection.find();
         var people_size = people.length;
-        $("tbody").append("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td>" + 
-                            '<td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
-                            +'<td><button type="button" class="btn delete btn-danger btn-lg" data-toggle="modal" data-id="' + id + '">Delete</button></td>'
-                          +"</tr>");
+        soure = $(".template").html();
+        soure = soure.replace(/#id/g,id);
+        soure = soure.replace(/name/g,name);
+        soure = soure.replace(/age/g,age);
+        $("tbody").append("<tr>" + soure + "</tr>")
+
+        // $("tbody").append("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td>" + 
+        //                     '<td><button type="button" class="btn detail btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-id="' + id + '">Detail</button></td>'
+        //                     +'<td><button type="button" class="btn delete btn-danger btn-lg" data-toggle="modal" data-id="' + id + '">Delete</button></td>'
+        //                   +"</tr>");
         $("#new_id").text(people[people_size-1].id+1);
         $("#new_name").val("");
         $("#new_age").val("");
@@ -150,6 +156,7 @@
           <td>姓名</td>
           <td>年齡</td>
           <td>grades</td>
+          <td>操作</td>
         </tr>
       </thead>
       <tbody>
